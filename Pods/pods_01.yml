@@ -1,0 +1,27 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name:  testpod
+  annotations:
+    description: My name is Rahul Soni
+  labels:
+    env: testing
+spec:
+  containers:
+      - name:  c00
+        image: nginx
+        command:
+         - sleep
+         - "3600"
+
+      - name: c01
+        image: httpd
+        command: ["/bin/bash", "-c","while true; do echo Hello World;  sleep 5; done;"]
+        ports:
+          - containerPort: 80
+        env:
+          - name: Owner
+            value: Rahul
+  nodeSelector:
+    hardware: t2-medium
+  restartPolicy: Never
