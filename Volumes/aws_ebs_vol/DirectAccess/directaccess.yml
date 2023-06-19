@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+  labels:
+    app: my-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: my-container
+        image: /var/lib/mysql
+        args:
+         - "--ignore-db-dir=lost+found"
+        volumeMounts:
+        - mountPath: /var/lib/mysql
+          name: my-volume
+        ports:
+        - name:  databasePort
+          port:  3306
+          protocol: TCP
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: password
+    nodeSelector:
+      zone: us-east-1a
+    volumes:
+    - name: my-volume
+      awsElasticBlockStore:
+        volumeID: vol-12345678
+        fsType: ext4

@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: my-pv
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: standard
+  # a hostPath volume is used, which maps a directory on the host machine to the PersistentVolume. It does not require creating an EBS volume beforehand.
+  hostPath:
+    path: /data/my-pv
+  # to use existing Volume
+  # awsElasticBlockStore:
+  #   volumeID: <volume-id>
+  #   fsType: ext4
