@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: myquota
+  namespace: test
+spec:
+  hard:
+    pods: 3
+    limits.cpu: "1"
+    limits.memory: "400Mi"
+    requests.cpu: "500m"
+    requests.memory: "1Gi"
