@@ -12,12 +12,12 @@ spec:
         app: my-app
     spec:
       containers:
-      - name: my-container
-        image: my-image
+      - name: nginx
+        image: nginx
         volumeMounts:
-        - mountPath: /data
+        - mountPath: /var/www/html
           name: my-volume
-  volumes:
-  - name: my-volume
-    persistentVolumeClaim:
-      claimName: my-pvc
+      volumes:
+      - name: my-volume
+        persistentVolumeClaim:
+          claimName: my-pvc
