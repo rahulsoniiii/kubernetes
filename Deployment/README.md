@@ -1,5 +1,3 @@
-Certainly! Here's a documentation template for Kubernetes Deployment:
-
 # Kubernetes Deployment Documentation
 
 ## Introduction
