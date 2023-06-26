@@ -41,9 +41,9 @@ Directly using Amazon Elastic Block Store (EBS) volumes to provide persistent st
 
 - Get volumes
 
-:
    ```
-   kubectl get pv,pvc
+   kubectl get pv
+   kubectl get pvc
    ```
 
 - Describe a volume:
