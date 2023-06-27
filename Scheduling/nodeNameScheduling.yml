@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "MannualScheduling"
+  labels:
+    technique: "nodeName"
+spec:
+  nodeName: controlPannel
+  containers:
+  - name: myapp
+    image: nginx
+    resources:
+      limits:
+        cpu: 200m
+        memory: 500Mi
+      requests:
+        cpu: 100m
+        memory: 200Mi
+   
