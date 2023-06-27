@@ -28,7 +28,7 @@ Step 2: Request an SSL/TLS Certificate:
 Step 3: Create an Ingress Resource:
 ----------------------------------
 1. Create an Ingress resource manifest file (e.g., `ingress.yaml`) with the following content:
-   ```
+```
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -48,8 +48,8 @@ spec:
                 name: my-service
                 port:
                   number: 80
-   ```
-   Replace `<certificate-arn>` with the ARN of your SSL/TLS certificate.
+```
+  **Replace `<certificate-arn>` with the ARN of your SSL/TLS certificate.**
 
 2. Apply the Ingress resource:
    ```
